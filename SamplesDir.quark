@@ -1,0 +1,11 @@
+(
+  name: "SamplesDir",
+  summary: "load a folderful of samples",
+  version: "0.001",
+  schelp: "SamplesDir.schelp",
+  dependencies: ["API", "wslib"],
+  license: "GNU GPL v3.0",
+  copyright: "elgiano",
+  ext_dependency: "",
+  url: "https://github.com/elgiano/SamplesDir"
+)
