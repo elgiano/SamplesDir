@@ -327,13 +327,16 @@ SamplesDir[] {
 
 	lazyLoad { |paths|
 		paths = paths.collect { |p|
-			var exact;
+			var exact, res;
 			p = if (PathName(p).isRelativePath) { path +/+ p } { p };
 			exact = loadingBufferPaths.detect(_==p);
-			exact ?? {
+			res = exact ?? {
 				loadingBufferPaths.detect { |bp| bp.basename == p.basename };
+			};
+			res ?? {
+				"[SamplesDir] file '%' not found".format(p).warn;
 			}
-		};
+		}.reject(_.isNil);
 		this.prLoadFiles(paths);
 	}
 
